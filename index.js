@@ -66,10 +66,10 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 
 
 // 1 parameter array
-function is31Flavors(/*your code here*/){
+function is31Flavors(array){
  /*your code here*/
  // we want to check to see that the length of the array is equal to 31
- if(array.length === 31){
+ if (array.length === 31){
    return true;
  }else{
    return false;
@@ -92,11 +92,15 @@ Use the addFlavor function below to do the following:
 */
 
 // 2 parameters: array, flavor
-function addFlavor(/*your code here*/){
- /*your code here*/
+function addFlavor(array, flavor){
+ array.unshift(flavor)
  // use unshift to add the flavour to the front of the array
  // return the array
+ return array
 }
+
+
+console.log('task 3', addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -110,12 +114,14 @@ Use the removeLastFlavor function below to do the following:
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 // 1 param array
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(array){
+ array.pop();
  // use .pop() to remove the last item
  // return the array
+ return array
 }
 
+console.log(removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -129,11 +135,12 @@ Use the getFlavorByIndex function below to do the following:
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 // 2 parameters: array, index
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(array, index){
+  return array[index]
   // for example if I passed in original flavors and 2 I would want to return originalFlavors(2)
   // return array[index]
 }
+console.log('Task 5', getFlavorByIndex(originalFlavors, 2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -151,15 +158,19 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 // 2 params: array, index
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(array, index){
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === index){
+      array.splice(i, 1);
+    }
+  }
   // loop through the array
   // write a conditional that checks to see if the index matches the given flavor
   // if it does remove it
-  // return the array(outside of the loop)
+  return array
 }
 
-
+console.log('task 6', removeFlavorByName(originalFlavors, 1));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -179,17 +190,25 @@ Use the filterByWord function below to do the following:
   HINT - you can use the .includes method to help you solve this
 
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
-*/
+*/ 
+const filteredArray = [];
 // 2 params: array, string
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array, flavor){
   // create a new array called "filteredArray" to push my values to 
   //loop through the original array and check each item
   // if the item includes the string i want to push it to the filtered arrya
-
+  for(let i = 0; i < array.length; i++){
+    if(array[i].includes(flavor)){
+      filteredArray.push(array[i])
+    }
+  }
   // outside of the for looo i want to return that filtered array
+  return filteredArray
 }
 
+
+
+console.log('task 7', filterByWord(filteredArray, 'Chocolate'));
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
